@@ -26,8 +26,8 @@ from closure_linter import errors
 from closure_linter import runner
 from closure_linter.common import erroraccumulator
 
-flags.FLAGS.es3 = True
-class ES3Test(googletest.TestCase):
+flags.FLAGS.check_trailing_comma = True
+class TrailingCommaTest(googletest.TestCase):
   """Test case to for gjslint errorrules."""
 
   def testGetTrailingCommaArray(self):
