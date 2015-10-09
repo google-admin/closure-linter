@@ -350,10 +350,10 @@ class EcmaScriptLintRules(checkerbase.LintRulesBase):
 
       if FLAGS.check_trailing_comma:
         if last_code.IsOperator(','):
-            self._HandleError(
-                errors.COMMA_AT_END_OF_LITERAL,
-                'Illegal comma at end of object literal', last_code,
-                position=Position.All(last_code.string))
+          self._HandleError(
+              errors.COMMA_AT_END_OF_LITERAL,
+              'Illegal comma at end of object literal', last_code,
+              position=Position.All(last_code.string))
 
       if state.InFunction() and state.IsFunctionClose():
         if state.InTopLevelFunction():
@@ -464,10 +464,10 @@ class EcmaScriptLintRules(checkerbase.LintRulesBase):
       last_code = token.metadata.last_code
       if FLAGS.check_trailing_comma and token_type == Type.END_BRACKET:
         if last_code.IsOperator(','):
-            self._HandleError(
-                errors.COMMA_AT_END_OF_LITERAL,
-                'Illegal comma at end of array literal', last_code,
-                position=Position.All(last_code.string))
+          self._HandleError(
+              errors.COMMA_AT_END_OF_LITERAL,
+              'Illegal comma at end of array literal', last_code,
+              position=Position.All(last_code.string))
 
       if (token.previous and token.previous.type == Type.WHITESPACE and
           not token.previous.IsFirstInLine() and
