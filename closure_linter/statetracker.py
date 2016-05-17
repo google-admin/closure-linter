@@ -89,6 +89,7 @@ class DocFlag(object):
       'protected',
       'public',
       'return',
+      'returns',
       'see',
       'stableIdGenerator',
       'struct',
