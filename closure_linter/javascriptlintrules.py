@@ -289,7 +289,7 @@ class JavaScriptLintRules(ecmalintrules.EcmaScriptLintRules):
                 function.doc and
                 (function.doc.HasFlag('returns') or function.doc.HasFlag('return')) and
                 not state.InInterfaceMethod()):
-            flag = function.doc.GetFlag('returns') if function.doc.GetFlag('returns') else function.doc.GetFlag('return')
+            flag = function.doc.GetFlag('returns') or function.doc.GetFlag('return')
             valid_no_return_names = ['undefined', 'void', '*']
             invalid_return = flag.jstype is None or not any(
                 sub_type.identifier in valid_no_return_names
