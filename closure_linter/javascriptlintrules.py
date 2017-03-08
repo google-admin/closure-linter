@@ -276,7 +276,7 @@ class JavaScriptLintRules(ecmalintrules.EcmaScriptLintRules):
         if not self._limited_doc_checks:
           if (function.has_return and function.doc and
               not is_immediately_called and
-              not function.doc.HasFlag('return') and
+              not (function.doc.HasFlag('returns') or function.doc.HasFlag('return')) and
               not function.doc.InheritsDocumentation() and
               not function.doc.HasFlag('constructor')):
             # Check for proper documentation of return value.
@@ -287,9 +287,9 @@ class JavaScriptLintRules(ecmalintrules.EcmaScriptLintRules):
           elif (not function.has_return and
                 not function.has_throw and
                 function.doc and
-                function.doc.HasFlag('return') and
+                (function.doc.HasFlag('returns') or function.doc.HasFlag('return')) and
                 not state.InInterfaceMethod()):
-            flag = function.doc.GetFlag('return')
+            flag = function.doc.GetFlag('returns') if function.doc.GetFlag('returns') else function.doc.GetFlag('return')
             valid_no_return_names = ['undefined', 'void', '*']
             invalid_return = flag.jstype is None or not any(
                 sub_type.identifier in valid_no_return_names
