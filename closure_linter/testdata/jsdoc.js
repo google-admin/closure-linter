@@ -51,7 +51,6 @@ goog.require('goog.math.Vec2');
 
 
 /**
- * @returns // INVALID_JSDOC_TAG
  * @params  // INVALID_JSDOC_TAG
  * @defines // INVALID_JSDOC_TAG
  * @nginject // INVALID_JSDOC_TAG
@@ -170,10 +169,27 @@ function goodReturn() {
 
 
 /**
+ * @returns {boolean} A boolean primitive.
+ */
+function goodReturns() {
+  return something;
+}
+
+
+/**
  * @return {some.long.type.that.will.make.the.description.start.on.next.line}
  *     An object.
  */
 function anotherGoodReturn() {
+  return something;
+}
+
+
+/**
+ * @returns {some.long.type.that.will.make.the.description.start.on.next.line}
+ *     An object.
+ */
+function anotherGoodReturns() {
   return something;
 }
 
@@ -187,6 +203,15 @@ function missingReturnType() {
 }
 
 
+// +2: MISSING_JSDOC_TAG_TYPE
+/**
+ * @returns false.
+ */
+function missingReturnsType() {
+  return something;
+}
+
+
 // +2: MISSING_SPACE
 /**
  * @return{type}
@@ -196,11 +221,29 @@ function missingSpaceOnReturnType() {
 }
 
 
+// +2: MISSING_SPACE
+/**
+ * @returns{type}
+ */
+function missingSpaceOnReturnsType() {
+  return something;
+}
+
+
 // +2: MISSING_JSDOC_TAG_TYPE
 /**
  * @return
  */
 function missingReturnType() {
+  return something;
+}
+
+
+// +2: MISSING_JSDOC_TAG_TYPE
+/**
+ * @returns
+ */
+function missingReturnsType() {
   return something;
 }
 

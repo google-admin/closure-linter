@@ -199,11 +199,6 @@ class ErrorFixer(errorhandler.ErrorHandler):
       self._DeleteToken(token)
       self._AddFix(token)
 
-    elif code == errors.INVALID_JSDOC_TAG:
-      if token.string == '@returns':
-        token.string = '@return'
-        self._AddFix(token)
-
     elif code == errors.FILE_MISSING_NEWLINE:
       # This error is fixed implicitly by the way we restore the file
       self._AddFix(token)
